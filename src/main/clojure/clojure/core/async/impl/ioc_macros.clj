@@ -29,19 +29,20 @@
   (pprint x)
   x)
 
+(set! *unchecked-math* true)
 
-(def ^:const FN-IDX 0)
-(def ^:const STATE-IDX 1)
-(def ^:const VALUE-IDX 2)
-(def ^:const BINDINGS-IDX 3)
-(def ^:const EXCEPTION-FRAMES 4)
-(def ^:const CURRENT-EXCEPTION 5)
-(def ^:const USER-START-IDX 6)
+(def ^:const FN-IDX (int 0))
+(def ^:const STATE-IDX (int 1))
+(def ^:const VALUE-IDX (int 2))
+(def ^:const BINDINGS-IDX (int 3))
+(def ^:const EXCEPTION-FRAMES (int 4))
+(def ^:const CURRENT-EXCEPTION (int 5))
+(def ^:const USER-START-IDX (int 6))
 
-(defn aset-object [^AtomicReferenceArray arr idx ^Object o]
+(defn aset-object [^AtomicReferenceArray arr ^Integer idx ^Object o]
   (.set arr idx o))
 
-(defn aget-object [^AtomicReferenceArray arr idx]
+(defn aget-object [^AtomicReferenceArray arr ^Integer idx]
   (.get arr idx))
 
 (defmacro aset-all!
